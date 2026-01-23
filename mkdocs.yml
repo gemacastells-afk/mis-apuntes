@@ -1,0 +1,33 @@
+site_name: Apuntes Big Data
+theme:
+  name: material
+  language: es
+  palette:
+    scheme: default
+    primary: teal
+    accent: purple
+  features:
+    - navigation.tabs          # Pestañas en la parte superior
+    - navigation.top           # Botón "Volver arriba" al hacer scroll
+    - navigation.footer        # Botones "Siguiente" y "Anterior" abajo del todo
+    - search.highlight         # Resaltar búsquedas
+
+# Esto es lo nuevo para que las cajas (quotes, warnings) funcionen
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - Inicio: index.md
+  - 'Módulo 1: Fundamentos':
+    - 'Teoría: Big Data y 5Vs': modulo1/intro.md
+    - 'Chuleta: Comandos y Estructura': modulo1/chuleta.md
+    - 'Práctica: Instalación Base': modulo1/practica.md
+  - 'Módulo 2: Ecosistema':
+    - 'Teoría: HDFS y MapReduce': modulo2/core.md
+    - 'Práctica: Metadatos (Commit)': modulo2/practica_metadatos.md
+  - 'Módulo 3: Instalación Avanzada':
+    - 'Práctica: Paso a Paso': modulo3/instalacion.md
+  - 'Módulo 4: YARN y Programación':
+    - 'Teoría: YARN y Arquitectura': modulo4/yarn_mapreduce.md
