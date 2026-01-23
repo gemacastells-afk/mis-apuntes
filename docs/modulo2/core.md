@@ -48,14 +48,14 @@ El NameNode es el cerebro de Hadoop. Para no "perder la memoria" si se apaga, ut
 1.  **`fsimage` (La Foto Fija):**
     * Es una copia completa ("snapshot") del estado del sistema de ficheros en un momento concreto.
     * Contiene el inventario de todos los directorios y archivos.
-    * **Analogía:** Es el "Inventario Anual" de una biblioteca [cite: 28-29].
+    * **Analogía:** Es el "Inventario Anual" de una biblioteca.
 
 2.  **`edits` (El Diario de Cambios):**
     * Es un registro log de cada pequeña operación que ocurre después del último `fsimage` (crear un archivo, borrarlo, etc.).
     * **Analogía:** Es la libreta de notas donde el bibliotecario apunta lo que pasa día a día .
 
 3.  **`VERSION`:**
-    * Contiene identificadores únicos como el `clusterID`. Es el "DNI" del clúster. Si formateas el NameNode, este ID cambia y los DataNodes dejan de reconocer al jefe [cite: 33-34, 47].
+    * Contiene identificadores únicos como el `clusterID`. Es el "DNI" del clúster. Si formateas el NameNode, este ID cambia y los DataNodes dejan de reconocer al jefe.
 
 ### B. El Proceso de Checkpoint (Punto de Control)
 Cuando el NameNode arranca, tiene que leer el `fsimage` y aplicar todos los cambios del `edits`. Si el `edits` es gigante, el arranque es lentísimo.
@@ -76,7 +76,6 @@ Se debe ejecutar siempre que encendamos la máquina virtual.
 start-dfs.sh
 ```
 * **Qué hace:** Arranca el NameNode (maestro), los DataNodes (esclavos) y el SecondaryNameNode.
-
 * **Cuándo usarlo:** Al inicio de la sesión.
 
 ### 🔴 Apagar el Clúster
