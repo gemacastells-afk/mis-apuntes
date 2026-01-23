@@ -1005,34 +1005,36 @@
 ls<span class="w"> </span>-l
 </code></pre></div>
 <strong>Conceptos Clave:</strong></p>
-<pre><code>- fsimage_...: Es una "foto fija" del sistema de ficheros en un momento concreto.
-
-- edits_...: Registro de cambios (logs) ocurridos después de la última foto.
-
-- VERSION: Contiene identificadores únicos del clúster (ClusterID, BlockPoolID).
-</code></pre>
+<ul>
+<li>fsimage_...: Es una "foto fija" del sistema de ficheros en un momento concreto.</li>
+<li>edits_...: Registro de cambios (logs) ocurridos después de la última foto.</li>
+<li>VERSION: Contiene identificadores únicos del clúster (ClusterID, BlockPoolID).</li>
+</ul>
 <h2 id="2-proceso-de-checkpoint-manual">2. Proceso de Checkpoint Manual</h2>
 <h3 id="paso-a-entrar-en-modo-seguro-safe-mode">Paso A: Entrar en Modo Seguro (Safe Mode)</h3>
 <p>Para guardar un estado consistente, debemos "congelar" el clúster para que nadie escriba datos nuevos.</p>
-<div class="highlight"><pre><span></span><code>hdfs dfsadmin -safemode enter
+<div class="highlight"><pre><span></span><code>hdfs<span class="w"> </span>dfsadmin<span class="w"> </span>-safemode<span class="w"> </span>enter
 </code></pre></div>
-<pre><code>Verificación: Podemos ir a la interfaz web (http://localhost:9870) y veremos que el "Safe mode is ON".
-</code></pre>
+<p>Verificación: Podemos ir a la interfaz web (http://localhost:9870) y veremos que el "Safe mode is ON".</p>
 <h3 id="paso-b-guardar-el-namespace-el-commit">Paso B: Guardar el Namespace (El "Commit")</h3>
 <p>Este comando fuerza la unión de la imagen antigua + los cambios recientes (edits) para crear una imagen nueva.</p>
-<div class="highlight"><pre><span></span><code>hdfs dfsadmin -saveNamespace
+<div class="highlight"><pre><span></span><code>hdfs<span class="w"> </span>dfsadmin<span class="w"> </span>-saveNamespace
 </code></pre></div>
 <p>Resultado: Se crea un nuevo archivo fsimage actualizado y se limpian los logs de edits.</p>
 <h3 id="paso-c-salir-del-modo-seguro">Paso C: Salir del Modo Seguro</h3>
 <p>Volvemos a abrir el clúster para operaciones normales.</p>
-<div class="highlight"><pre><span></span><code>hdfs dfsadmin -safemode leave
+<div class="highlight"><pre><span></span><code>hdfs<span class="w"> </span>dfsadmin<span class="w"> </span>-safemode<span class="w"> </span>leave
 </code></pre></div>
 <h2 id="3-conclusiones">3. Conclusiones</h2>
 <p>Al listar de nuevo el directorio /datos/namenode/current, observamos que:</p>
-<pre><code>1. Ha aparecido un archivo fsimage con un número de transacción más alto.
-
-2. El archivo edits_inprogress se ha reiniciado.
-</code></pre>
+<ol>
+<li>
+<p>Ha aparecido un archivo fsimage con un número de transacción más alto.</p>
+</li>
+<li>
+<p>El archivo edits_inprogress se ha reiniciado.</p>
+</li>
+</ol>
 <p>Esto garantiza que, si el NameNode se apaga ahora mismo, el arranque será mucho más rápido porque ya tiene una "foto" reciente y no tiene que procesar miles de cambios antiguos.</p>
 
 
