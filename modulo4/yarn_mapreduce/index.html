@@ -1155,22 +1155,24 @@
 <h2 id="1-evolucion-de-hadoop-10-a-20">1. Evolución: De Hadoop 1.0 a 2.0</h2>
 <p>Antes de entender cómo funciona hoy, hay que entender el problema del pasado.</p>
 <h3 id="el-problema-de-hadoop-10-mr1">El Problema de Hadoop 1.0 (MR1)</h3>
-<p>[cite_start]En la versión antigua, existía un único "dictador" llamado <strong>JobTracker</strong> [cite: 271-272]. Este componente tenía que hacerlo todo:
+<p>En la versión antigua, existía un único "dictador" llamado <strong>JobTracker</strong>. Este componente tenía que hacerlo todo:
 1.  <strong>Gestionar recursos:</strong> Decidir qué ordenadores tenían memoria libre.
 2.  <strong>Controlar tareas:</strong> Vigilar que el código no fallara.</p>
 <p>Esto creaba un <strong>cuello de botella</strong>. Si el clúster crecía a miles de ordenadores, el JobTracker colapsaba. Además, solo permitía ejecutar trabajos de tipo MapReduce (nada de Spark o streaming).</p>
 <h3 id="la-solucion-hadoop-20-yarn">La Solución: Hadoop 2.0 (YARN)</h3>
-<p>La solución fue <strong>dividir responsabilidades</strong>. [cite_start]Nace <strong>YARN</strong> (Yet Another Resource Negotiator), que actúa como el Sistema Operativo del clúster [cite: 260-267].
-* <strong>YARN</strong> solo gestiona el hardware (RAM/CPU).
-* Las aplicaciones (como MapReduce o Spark) se ejecutan <em>encima</em> de YARN como si fueran programas instalados.</p>
+<p>La solución fue <strong>dividir responsabilidades</strong>. Nace <strong>YARN</strong> (Yet Another Resource Negotiator), que actúa como el Sistema Operativo del clúster.</p>
+<ul>
+<li><strong>YARN</strong> solo gestiona el hardware (RAM/CPU).</li>
+<li>Las aplicaciones (como MapReduce o Spark) se ejecutan <em>encima</em> de YARN como si fueran programas instalados.</li>
+</ul>
 <hr />
 <h2 id="2-arquitectura-de-yarn">2. Arquitectura de YARN</h2>
 <p>YARN funciona con una jerarquía de tres niveles:</p>
 <h3 id="a-resource-manager-el-dueno-de-la-empresa">A. Resource Manager (El Dueño de la Empresa)</h3>
 <ul>
 <li><strong>Dónde está:</strong> En el nodo maestro.</li>
-<li><strong>Misión:</strong> Es el autoridad máxima de los recursos. Gestiona la RAM y CPU de todo el clúster.</li>
-<li><strong>Función:</strong> No sabe <em>qué</em> estás ejecutando. [cite_start]Solo recibe peticiones ("Necesito 4GB de RAM") y las aprueba o deniega [cite: 306-308].</li>
+<li><strong>Misión:</strong> Es el que tiene autoridad máxima de los recursos. Gestiona la RAM y CPU de todo el clúster.</li>
+<li><strong>Función:</strong> No sabe <em>qué</em> estás ejecutando. Solo recibe peticiones ("Necesito 4GB de RAM") y las aprueba o deniega.</li>
 </ul>
 <h3 id="b-node-manager-el-encargado-de-sala">B. Node Manager (El Encargado de Sala)</h3>
 <ul>
@@ -1182,7 +1184,7 @@
 <ul>
 <li><strong>Dónde está:</strong> Se crea uno específico para cada trabajo (Job) que lanzas.</li>
 <li><strong>Misión:</strong> Dirigir la ejecución de <em>tu</em> programa.</li>
-<li><strong>Función:</strong> Negocia los recursos con el Resource Manager y luego da las órdenes a los Node Managers. [cite_start]Cuando el trabajo termina, este jefe "desaparece" [cite: 320-321].</li>
+<li><strong>Función:</strong> Negocia los recursos con el Resource Manager y luego da las órdenes a los Node Managers. Cuando el trabajo termina, este jefe "desaparece" [.</li>
 </ul>
 <hr />
 <h2 id="3-configuracion-de-yarn">3. Configuración de YARN</h2>
@@ -1211,19 +1213,19 @@ Aquí configuramos quién es el jefe (hostname) y activamos el servicio auxiliar
 <li><strong>Entrada:</strong> Recibe datos en bruto (líneas de texto, emails, etc.).</li>
 <li><strong>Proceso:</strong> Filtra la información útil.</li>
 <li><strong>Salida:</strong> Emite pares <strong>Clave-Valor</strong>.</li>
-<li><strong>Importante:</strong> El Mapper <strong>NO suma</strong> ni cuenta totales. Es "tonto" y rápido. [cite_start]Solo dice: "He visto un pepe" (<code>pepe, 1</code>) [cite: 860-862].</li>
+<li><strong>Importante:</strong> El Mapper <strong>NO suma</strong> ni cuenta totales. Es "tonto" y rápido.Solo dice: "He visto un pepe" (<code>pepe, 1</code>).</li>
 </ul>
 <h3 id="fase-2-shuffle-sort-el-organizador">Fase 2: Shuffle &amp; Sort (El Organizador)</h3>
 <ul>
 <li><strong>Proceso:</strong> Es automático (caja negra de Hadoop).</li>
-<li>[cite_start]<strong>Acción:</strong> Recoge todas las salidas de los miles de Mappers, las <strong>ordena</strong> alfabéticamente y las <strong>agrupa</strong> por clave[cite: 533].</li>
-<li>[cite_start]<strong>Resultado:</strong> Al Reducer no le llegan datos sueltos, le llega la clave con todos sus valores juntos (Ej: <code>pepe, [1, 1, 1]</code>)[cite: 533].</li>
+<li><strong>Acción:</strong> Recoge todas las salidas de los miles de Mappers, las <strong>ordena</strong> alfabéticamente y las <strong>agrupa</strong> por clave.</li>
+<li><strong>Resultado:</strong> Al Reducer no le llegan datos sueltos, le llega la clave con todos sus valores juntos (Ej: <code>pepe, [1, 1, 1]</code>).</li>
 </ul>
 <h3 id="fase-3-reducer-el-contador">Fase 3: Reducer (El Contador)</h3>
 <ul>
 <li><strong>Entrada:</strong> Recibe los datos ya ordenados y agrupados.</li>
 <li><strong>Proceso:</strong> Itera sobre la lista de valores y realiza la operación final (sumar, calcular media, máximo...).</li>
-<li>[cite_start]<strong>Salida:</strong> El resultado final que se guarda en HDFS [cite: 589-590].</li>
+<li><strong>Salida:</strong> El resultado final que se guarda en HDFS.</li>
 </ul>
 
 

@@ -1206,7 +1206,7 @@
 <ul>
 <li>Es una copia completa ("snapshot") del estado del sistema de ficheros en un momento concreto.</li>
 <li>Contiene el inventario de todos los directorios y archivos.</li>
-<li><strong>Analogía:</strong> Es el "Inventario Anual" de una biblioteca [cite: 28-29].</li>
+<li><strong>Analogía:</strong> Es el "Inventario Anual" de una biblioteca.</li>
 </ul>
 </li>
 <li>
@@ -1219,7 +1219,7 @@
 <li>
 <p><strong><code>VERSION</code>:</strong></p>
 <ul>
-<li>Contiene identificadores únicos como el <code>clusterID</code>. Es el "DNI" del clúster. Si formateas el NameNode, este ID cambia y los DataNodes dejan de reconocer al jefe [cite: 33-34, 47].</li>
+<li>Contiene identificadores únicos como el <code>clusterID</code>. Es el "DNI" del clúster. Si formateas el NameNode, este ID cambia y los DataNodes dejan de reconocer al jefe.</li>
 </ul>
 </li>
 </ol>
@@ -1236,10 +1236,8 @@
 <p>Se debe ejecutar siempre que encendamos la máquina virtual.</p>
 <p><div class="highlight"><pre><span></span><code>start-dfs.sh
 </code></pre></div>
-* <strong>Qué hace:</strong> Arranca el NameNode (maestro), los DataNodes (esclavos) y el SecondaryNameNode.</p>
-<ul>
-<li><strong>Cuándo usarlo:</strong> Al inicio de la sesión.</li>
-</ul>
+* <strong>Qué hace:</strong> Arranca el NameNode (maestro), los DataNodes (esclavos) y el SecondaryNameNode.
+* <strong>Cuándo usarlo:</strong> Al inicio de la sesión.</p>
 <h3 id="apagar-el-cluster">🔴 Apagar el Clúster</h3>
 <p>Es recomendable hacerlo antes de apagar la máquina virtual para evitar que los archivos de metadatos se corrompan.</p>
 <div class="highlight"><pre><span></span><code>stop-dfs.sh
