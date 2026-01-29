@@ -1234,10 +1234,12 @@
 <p>Para trabajar con Hadoop, primero debemos "levantar" los servicios (demonios). Si no lo hacemos, recibiremos errores de <code>Connection Refused</code>.</p>
 <h3 id="encender-el-cluster-hdfs">🟢 Encender el Clúster (HDFS)</h3>
 <p>Se debe ejecutar siempre que encendamos la máquina virtual.</p>
-<p><div class="highlight"><pre><span></span><code>start-dfs.sh
+<div class="highlight"><pre><span></span><code>start-dfs.sh
 </code></pre></div>
-* <strong>Qué hace:</strong> Arranca el NameNode (maestro), los DataNodes (esclavos) y el SecondaryNameNode.
-* <strong>Cuándo usarlo:</strong> Al inicio de la sesión.</p>
+<ul>
+<li><strong>Qué hace:</strong> Arranca el NameNode (maestro), los DataNodes (esclavos) y el SecondaryNameNode.</li>
+<li><strong>Cuándo usarlo:</strong> Al inicio de la sesión.</li>
+</ul>
 <h3 id="apagar-el-cluster">🔴 Apagar el Clúster</h3>
 <p>Es recomendable hacerlo antes de apagar la máquina virtual para evitar que los archivos de metadatos se corrompan.</p>
 <div class="highlight"><pre><span></span><code>stop-dfs.sh
