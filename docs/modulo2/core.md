@@ -75,6 +75,7 @@ Se debe ejecutar siempre que encendamos la máquina virtual.
 ```bash
 start-dfs.sh
 ```
+
 * **Qué hace:** Arranca el NameNode (maestro), los DataNodes (esclavos) y el SecondaryNameNode.
 * **Cuándo usarlo:** Al inicio de la sesión.
 
@@ -88,6 +89,7 @@ stop-dfs.sh
 ```
 
 * **Qué hace**: Detiene todos los procesos de forma ordenada.
+
 
 🔍 **Verificar el Estado (JPS)**
 El comando jps (Java Virtual Machine Process Status Tool) es el "médico" que nos dice qué procesos están vivos.
