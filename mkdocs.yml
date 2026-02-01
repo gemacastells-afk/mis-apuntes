@@ -31,3 +31,5 @@ nav:
     - 'Práctica: Paso a Paso': modulo3/instalacion.md
   - 'Módulo 4: YARN y Programación':
     - 'Teoría: YARN y Arquitectura': modulo4/yarn_mapreduce.md
+  - 'Módulo 5: YARN Scheduler':
+    - 'Teoría: Gestión de Colas': modulo5/yarn_sheduler.md
