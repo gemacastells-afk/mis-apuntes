@@ -32,4 +32,4 @@ nav:
   - 'Módulo 4: YARN y Programación':
     - 'Teoría: YARN y Arquitectura': modulo4/yarn_mapreduce.md
   - 'Módulo 5: YARN Scheduler':
-    - 'Teoría: Gestión de Colas': modulo5/yarn_sheduler.md
+    - 'Teoría: Gestión de Colas': modulo5/yarn_scheduler.md

@@ -14,7 +14,7 @@ Haz clic en los enlaces para ir a cada tema:
 
 ## 📝 Chuleta: Cómo actualizar estos apuntes
 
-Cada vez que añadas contenido nuevo, sigue estos pasos en tu terminal para que se vean reflejados en [GitHub Pages](https://gemacastells-afk.github.io/mis-apuntes/):
+Cada vez que se añada contenido nuevo, hay que seguir estos pasos en la terminal para que se vean reflejados en [GitHub Pages](https://gemacastells-afk.github.io/mis-apuntes/):
 
 !!! tip "Pasos para publicar cambios"
     1. **Guardar cambios en local:**
@@ -32,4 +32,4 @@ Cada vez que añadas contenido nuevo, sigue estos pasos en tu terminal para que 
        ```
 
 !!! info "Nota sobre el Scheduler"
-    Recuerda que los cambios en el menú se configuran siempre en el archivo raíz `mkdocs.yml`. [cite: 13, 190]
+    Tener en cuenta que los cambios en el menú se configuran siempre en el archivo raíz `mkdocs.yml`. [cite: 13, 190]
