@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../../modulo4/yarn_mapreduce/">
+        <link rel="prev" href="../yarn_scheduler/">
       
-      
-        <link rel="next" href="../practica_scheduler/">
       
       
         
@@ -23,7 +21,7 @@
     
     
       
-        <title>Teoría: Gestión de Colas - Apuntes Big Data</title>
+        <title>Práctica: Metadatos (Commit) - Apuntes Big Data</title>
       
     
     
@@ -72,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ud-5-yarn-scheduler" class="md-skip">
+        <a href="#unidad-5-practica-p5-particion-de-recursos-por-colas-en-yarn-capacity-scheduler" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -106,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Teoría: Gestión de Colas
+              Práctica: Metadatos (Commit)
             
           </span>
         </div>
@@ -282,7 +280,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../yarn_scheduler/" class="md-tabs__link">
           
   
   
@@ -837,6 +835,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../yarn_scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teoría: Gestión de Colas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -856,7 +882,7 @@
   <span class="md-ellipsis">
     
   
-    Teoría: Gestión de Colas
+    Práctica: Metadatos (Commit)
   
 
     
@@ -874,7 +900,7 @@
   <span class="md-ellipsis">
     
   
-    Teoría: Gestión de Colas
+    Práctica: Metadatos (Commit)
   
 
     
@@ -900,22 +926,110 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-introduccion-al-scheduler-de-yarn" class="md-nav__link">
+  <a href="#0-resumen" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Introducción al Scheduler de YARN
+        0. Resumen
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Introducción al Scheduler de YARN">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Objetivos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-arbol-objetivo-estructura-de-colas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Árbol objetivo (estructura de colas)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-prerrequisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Prerrequisitos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-archivo-a-editar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Archivo a editar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configuracion-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Configuración paso a paso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Configuración paso a paso">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#evolucion-historica" class="md-nav__link">
+  <a href="#paso-1-definir-las-colas-hijas-de-root" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evolución Histórica
+        PASO 1 — Definir las colas hijas de root
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-asignar-capacidad-a-warehouse-datalake-y-olap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 2 — Asignar capacidad a warehouse, datalake y olap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-convertir-olap-en-cola-padre-y-crear-facts-y-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 3 — Convertir olap en cola padre y crear facts y dimensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-opcional-recomendado-estado-y-maximos-de-capacidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 4 — (Opcional recomendado) Estado y máximos de capacidad
       
     </span>
   </a>
@@ -928,22 +1042,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-interfaz-de-usuario-y-monitorizacion" class="md-nav__link">
+  <a href="#6-aplicar-cambios-y-verificar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Interfaz de Usuario y Monitorización
+        6. Aplicar cambios y verificar
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Interfaz de Usuario y Monitorización">
+    <nav class="md-nav" aria-label="6. Aplicar cambios y verificar">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metricas-de-configuracion-scheduler-metrics" class="md-nav__link">
+  <a href="#61-recargar-colas-sin-reiniciar-servicios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Métricas de Configuración (Scheduler Metrics)
+        6.1 Recargar colas (sin reiniciar servicios)
       
     </span>
   </a>
@@ -951,10 +1065,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jerarquia-por-defecto" class="md-nav__link">
+  <a href="#62-verificacion-en-la-ui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jerarquía por Defecto
+        6.2 Verificación en la UI
       
     </span>
   </a>
@@ -967,22 +1081,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-configuracion-capacity-schedulerxml" class="md-nav__link">
+  <a href="#7-tabla-de-capacidades-globales-respecto-al-cluster-total" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Configuración: capacity-scheduler.xml
+        7. Tabla de capacidades globales (respecto al clúster total)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Configuración: capacity-scheduler.xml">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ejecucion-de-wordcount-y-resolucion-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Ejecución de WordCount y resolución de error
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Ejecución de WordCount y resolución de error">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#propiedades-principales" class="md-nav__link">
+  <a href="#81-el-problema-job-enviado-a-una-cola-que-no-es-hoja" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Propiedades Principales
+        8.1 El problema: job enviado a una cola que no es hoja
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-la-solucion-enviar-el-job-a-una-cola-hoja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 La solución: enviar el job a una cola hoja
       
     </span>
   </a>
@@ -995,10 +1131,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-gestion-de-recursos-y-colas" class="md-nav__link">
+  <a href="#9-cuestionario-respuestas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Gestión de Recursos y Colas
+        9. Cuestionario (respuestas)
       
     </span>
   </a>
@@ -1006,10 +1142,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-asignacion-de-procesos-a-colas" class="md-nav__link">
+  <a href="#10-entrega-sugerida" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Asignación de Procesos a Colas
+        10. Entrega sugerida
       
     </span>
   </a>
@@ -1017,10 +1153,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-resumen-de-comandos-utiles" class="md-nav__link">
+  <a href="#11-referencias-de-apuntes-marcadores" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Resumen de Comandos Útiles
+        11. Referencias de apuntes (marcadores)
       
     </span>
   </a>
@@ -1031,34 +1167,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../practica_scheduler/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Práctica: Metadatos (Commit)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1098,22 +1206,110 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-introduccion-al-scheduler-de-yarn" class="md-nav__link">
+  <a href="#0-resumen" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Introducción al Scheduler de YARN
+        0. Resumen
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Introducción al Scheduler de YARN">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Objetivos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-arbol-objetivo-estructura-de-colas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Árbol objetivo (estructura de colas)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-prerrequisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Prerrequisitos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-archivo-a-editar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Archivo a editar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configuracion-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Configuración paso a paso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Configuración paso a paso">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#evolucion-historica" class="md-nav__link">
+  <a href="#paso-1-definir-las-colas-hijas-de-root" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evolución Histórica
+        PASO 1 — Definir las colas hijas de root
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-asignar-capacidad-a-warehouse-datalake-y-olap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 2 — Asignar capacidad a warehouse, datalake y olap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-convertir-olap-en-cola-padre-y-crear-facts-y-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 3 — Convertir olap en cola padre y crear facts y dimensions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-opcional-recomendado-estado-y-maximos-de-capacidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PASO 4 — (Opcional recomendado) Estado y máximos de capacidad
       
     </span>
   </a>
@@ -1126,22 +1322,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-interfaz-de-usuario-y-monitorizacion" class="md-nav__link">
+  <a href="#6-aplicar-cambios-y-verificar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Interfaz de Usuario y Monitorización
+        6. Aplicar cambios y verificar
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Interfaz de Usuario y Monitorización">
+    <nav class="md-nav" aria-label="6. Aplicar cambios y verificar">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metricas-de-configuracion-scheduler-metrics" class="md-nav__link">
+  <a href="#61-recargar-colas-sin-reiniciar-servicios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Métricas de Configuración (Scheduler Metrics)
+        6.1 Recargar colas (sin reiniciar servicios)
       
     </span>
   </a>
@@ -1149,10 +1345,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jerarquia-por-defecto" class="md-nav__link">
+  <a href="#62-verificacion-en-la-ui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jerarquía por Defecto
+        6.2 Verificación en la UI
       
     </span>
   </a>
@@ -1165,22 +1361,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-configuracion-capacity-schedulerxml" class="md-nav__link">
+  <a href="#7-tabla-de-capacidades-globales-respecto-al-cluster-total" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Configuración: capacity-scheduler.xml
+        7. Tabla de capacidades globales (respecto al clúster total)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Configuración: capacity-scheduler.xml">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ejecucion-de-wordcount-y-resolucion-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Ejecución de WordCount y resolución de error
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Ejecución de WordCount y resolución de error">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#propiedades-principales" class="md-nav__link">
+  <a href="#81-el-problema-job-enviado-a-una-cola-que-no-es-hoja" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Propiedades Principales
+        8.1 El problema: job enviado a una cola que no es hoja
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-la-solucion-enviar-el-job-a-una-cola-hoja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 La solución: enviar el job a una cola hoja
       
     </span>
   </a>
@@ -1193,10 +1411,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-gestion-de-recursos-y-colas" class="md-nav__link">
+  <a href="#9-cuestionario-respuestas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Gestión de Recursos y Colas
+        9. Cuestionario (respuestas)
       
     </span>
   </a>
@@ -1204,10 +1422,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-asignacion-de-procesos-a-colas" class="md-nav__link">
+  <a href="#10-entrega-sugerida" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Asignación de Procesos a Colas
+        10. Entrega sugerida
       
     </span>
   </a>
@@ -1215,10 +1433,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-resumen-de-comandos-utiles" class="md-nav__link">
+  <a href="#11-referencias-de-apuntes-marcadores" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Resumen de Comandos Útiles
+        11. Referencias de apuntes (marcadores)
       
     </span>
   </a>
@@ -1242,67 +1460,241 @@
 
 
 
-<h1 id="ud-5-yarn-scheduler">UD 5: YARN Scheduler</h1>
-<p><strong>Asignatura:</strong> Grado de Especialización Big Data e IA </p>
+<h1 id="unidad-5-practica-p5-particion-de-recursos-por-colas-en-yarn-capacity-scheduler">Unidad 5 — Práctica P5: Partición de Recursos por Colas en YARN (Capacity Scheduler)</h1>
+<h2 id="0-resumen">0. Resumen</h2>
+<p>En esta práctica vas a <strong>configurar el Capacity Scheduler</strong> para crear una <strong>jerarquía de colas</strong> en YARN, <strong>repartir recursos por porcentajes</strong>, comprobar la estructura en la interfaz del ResourceManager y <strong>resolver un fallo típico</strong> al lanzar trabajos en una cola que no es hoja.</p>
 <hr />
-<h2 id="1-introduccion-al-scheduler-de-yarn">1. Introducción al Scheduler de YARN</h2>
-<p>El <strong>Scheduler</strong> es el componente de YARN responsable de la partición de los recursos de todo el clúster y de la asignación de procesos a cada una de esas particiones.</p>
-<h3 id="evolucion-historica">Evolución Histórica</h3>
+<h2 id="1-objetivos">1. Objetivos</h2>
+<p>Al terminar, deberías ser capaz de:</p>
 <ul>
-<li><strong>MapReduce 1 (MR1):</strong> La distribución de recursos era homogénea para todo el clúster. Se utilizaba el <em>Fair Scheduler</em>, el cual no permitía realizar particiones de recursos de forma jerárquica.</li>
-<li><strong>YARN:</strong> Implementa una gestión de recursos basada en una <strong>estructura de árbol</strong>. Este modelo se conoce como <strong>Capacity Scheduler</strong>.</li>
+<li>Definir colas principales bajo <code>root</code>.</li>
+<li>Crear subcolas (jerarquía) dentro de una cola intermedia.</li>
+<li>Asignar <strong>capacidades</strong> coherentes (que sumen 100% en cada nivel).</li>
+<li>Aplicar cambios con <code>yarn rmadmin -refreshQueues</code>.</li>
+<li>Verificar colas y porcentajes en la UI del ResourceManager.</li>
+<li>Entender por qué <strong>solo se puede enviar jobs a colas hoja (leaf queues)</strong>.</li>
 </ul>
 <hr />
-<h2 id="2-interfaz-de-usuario-y-monitorizacion">2. Interfaz de Usuario y Monitorización</h2>
-<p>Es posible supervisar la gestión de recursos a través de la interfaz web de YARN.</p>
-<h3 id="metricas-de-configuracion-scheduler-metrics">Métricas de Configuración (Scheduler Metrics)</h3>
-<p>En la interfaz podemos observar límites críticos para el funcionamiento del clúster:
-* <strong>Minimum Allocation:</strong> El recurso mínimo que se asigna a cada contenedor (ejemplo: <code>&lt;memory:1024, vCores:1&gt;</code>).
-* <strong>Maximum Allocation:</strong> El límite máximo de recursos que puede solicitar un solo proceso (ejemplo: <code>&lt;memory:8192, vCores:4&gt;</code>).</p>
-<h3 id="jerarquia-por-defecto">Jerarquía por Defecto</h3>
-<p>Si no se realiza una configuración específica, YARN crea automáticamente:
-1.  Una cola general llamada <strong>root</strong>.
-2.  Una subcola llamada <strong>default</strong>, que tiene asignado el <strong>100%</strong> de los recursos del clúster.</p>
-<hr />
-<h2 id="3-configuracion-capacity-schedulerxml">3. Configuración: <code>capacity-scheduler.xml</code></h2>
-<p>La distribución de recursos en forma de "colas" se define en el archivo de configuración <code>capacity-scheduler.xml</code>. Este archivo se encuentra junto al resto de archivos de configuración de Hadoop.</p>
-<h3 id="propiedades-principales">Propiedades Principales</h3>
-<ol>
-<li><strong>Definición de colas (<code>queues</code>):</strong> Indica qué colas existen en un nivel determinado.<ul>
-<li><em>Ejemplo:</em> <code>yarn.scheduler.capacity.root.queues</code> con valor <code>default, prod, desa</code> creará tres colas que cuelgan del nodo raíz.</li>
+<h2 id="2-arbol-objetivo-estructura-de-colas">2. Árbol objetivo (estructura de colas)</h2>
+<p>La jerarquía a implementar es:</p>
+<ul>
+<li><strong>root</strong></li>
+<li><strong>warehouse</strong>: 20%</li>
+<li><strong>datalake</strong>: 20%</li>
+<li><strong>olap</strong>: 60%<ul>
+<li><strong>facts</strong>: 70% (del total de <code>olap</code>)</li>
+<li><strong>dimensions</strong>: 30% (del total de <code>olap</code>)</li>
 </ul>
 </li>
-<li><strong>Asignación de Capacidad (<code>capacity</code>):</strong> Indica el porcentaje de recursos asignado a cada cola.<ul>
-<li><em>Ejemplo:</em> <code>yarn.scheduler.capacity.root.default.capacity</code> con valor <code>30</code> asigna el 30% a esa cola.</li>
 </ul>
-</li>
-</ol>
 <blockquote>
-<p><strong>Nota:</strong> Para añadir elementos a un nivel, los nombres de las colas se separan por comas en la configuración.</p>
+<p>Nota: <code>facts</code> y <code>dimensions</code> son porcentajes <strong>dentro de <code>olap</code></strong>, no del clúster completo.</p>
 </blockquote>
 <hr />
-<h2 id="4-gestion-de-recursos-y-colas">4. Gestión de Recursos y Colas</h2>
-<p>Una vez modificado el archivo de configuración, existen dos formas de aplicar los cambios:</p>
-<ol>
-<li><strong>Reinicio del servicio:</strong> Parar y arrancar Hadoop.</li>
-<li><strong>Refresco en caliente:</strong> Ejecutar el comando <code>yarn rmadmin -refreshQueues</code>.<ul>
-<li><em>Riesgos:</em> Este comando puede fallar si la cola está en uso (estado <code>RUNNING</code>), especialmente si intentas convertir una cola de tipo "hoja" en una cola "padre".</li>
+<h2 id="3-prerrequisitos">3. Prerrequisitos</h2>
+<ul>
+<li>Cluster YARN funcionando (ResourceManager y NodeManagers activos).</li>
+<li>Acceso al directorio de configuración de Hadoop:</li>
+<li>Normalmente: <code>$HADOOP_HOME/etc/hadoop</code></li>
+<li>Scheduler activo: <strong>Capacity Scheduler</strong>.</li>
+<li>Comprobación rápida (si hace falta):<ul>
+<li>Revisa <code>yarn-site.xml</code> y verifica que el scheduler sea el Capacity Scheduler (propiedad <code>yarn.resourcemanager.scheduler.class</code>).</li>
 </ul>
 </li>
-</ol>
-<hr />
-<h2 id="5-asignacion-de-procesos-a-colas">5. Asignación de Procesos a Colas</h2>
-<p>Para ejecutar un trabajo de MapReduce en una cola específica (distinta a la <code>default</code>), se debe añadir un parámetro en la línea de comandos:</p>
-<p><strong>Parámetro:</strong> <code>-Dmapreduce.job.queuename=nombre_de_la_cola</code> </p>
-<p><strong>Ejemplo de ejecución:</strong>
-<div class="highlight"><pre><span></span><code>hadoop<span class="w"> </span>jar<span class="w"> </span>hadoop-mapreduce-examples.jar<span class="w"> </span>wordcount<span class="w"> </span>-Dmapreduce.job.queuename<span class="o">=</span>facts/libros<span class="w"> </span>/entrada<span class="w"> </span>/salida
-</code></pre></div></p>
-<hr />
-<h2 id="6-resumen-de-comandos-utiles">6. Resumen de Comandos Útiles</h2>
-<ul>
-<li><strong>Listar colas por consola:</strong> <code>mapred queue -list</code>.</li>
-<li><strong>Actualizar configuración sin reiniciar:</strong> <code>yarn rmadmin -refreshQueues</code>.</li>
 </ul>
+<hr />
+<h2 id="4-archivo-a-editar">4. Archivo a editar</h2>
+<p>El reparto de colas y capacidades se configura en:</p>
+<ul>
+<li><strong><code>capacity-scheduler.xml</code></strong></li>
+<li>Ruta típica: <code>$HADOOP_HOME/etc/hadoop/capacity-scheduler.xml</code></li>
+</ul>
+<blockquote>
+<p>Consejo: antes de tocar nada, haz una copia:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>capacity-scheduler.xml<span class="w"> </span>capacity-scheduler.xml.bak
+</code></pre></div>
+</blockquote>
+<hr />
+<h2 id="5-configuracion-paso-a-paso">5. Configuración paso a paso</h2>
+<h3 id="paso-1-definir-las-colas-hijas-de-root">PASO 1 — Definir las colas hijas de <code>root</code></h3>
+<p>Busca (o añade) la propiedad que define las colas bajo <code>root</code> y sustituye <code>default</code> por las colas objetivo:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>yarn.scheduler.capacity.root.queues<span class="nt">&lt;/name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;value&gt;</span>warehouse,datalake,olap<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</code></pre></div>
+<blockquote>
+<p>Importante: si existía <code>default</code> y la quitas, asegúrate de <strong>reemplazar también</strong> la configuración de <code>root.default</code> por la de tus nuevas colas (para no dejar valores huérfanos).</p>
+</blockquote>
+<hr />
+<h3 id="paso-2-asignar-capacidad-a-warehouse-datalake-y-olap">PASO 2 — Asignar capacidad a <code>warehouse</code>, <code>datalake</code> y <code>olap</code></h3>
+<p>Añade (o ajusta) las propiedades de capacidad para cada cola hija de <code>root</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- warehouse: 20% --&gt;</span>
+<span class="nt">&lt;property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>yarn.scheduler.capacity.root.warehouse.capacity<span class="nt">&lt;/name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;value&gt;</span>20<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+
+<span class="cm">&lt;!-- datalake: 20% --&gt;</span>
+<span class="nt">&lt;property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>yarn.scheduler.capacity.root.datalake.capacity<span class="nt">&lt;/name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;value&gt;</span>20<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+
+<span class="cm">&lt;!-- olap: 60% --&gt;</span>
+<span class="nt">&lt;property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>yarn.scheduler.capacity.root.olap.capacity<span class="nt">&lt;/name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;value&gt;</span>60<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</code></pre></div>
+<p>✅ Comprobación: en el nivel <code>root</code>, las capacidades <strong>deben sumar 100</strong> (20 + 20 + 60 = 100).</p>
+<hr />
+<h3 id="paso-3-convertir-olap-en-cola-padre-y-crear-facts-y-dimensions">PASO 3 — Convertir <code>olap</code> en cola padre y crear <code>facts</code> y <code>dimensions</code></h3>
+<p>Para que <code>olap</code> tenga subcolas, decláralas así:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>yarn.scheduler.capacity.root.olap.queues<span class="nt">&lt;/name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;value&gt;</span>facts,dimensions<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</code></pre></div>
+<p>Ahora asigna capacidades <strong>dentro de <code>olap</code></strong> (también deben sumar 100):</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- facts: 70% de la capacidad de olap --&gt;</span>
+<span class="nt">&lt;property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>yarn.scheduler.capacity.root.olap.facts.capacity<span class="nt">&lt;/name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;value&gt;</span>70<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+
+<span class="cm">&lt;!-- dimensions: 30% de la capacidad de olap --&gt;</span>
+<span class="nt">&lt;property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>yarn.scheduler.capacity.root.olap.dimensions.capacity<span class="nt">&lt;/name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;value&gt;</span>30<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</code></pre></div>
+<blockquote>
+<p>Resultado: <code>facts</code> y <code>dimensions</code> son <strong>colas hoja</strong>, y <code>olap</code> deja de ser una cola hoja (pasa a ser padre).</p>
+</blockquote>
+<hr />
+<h3 id="paso-4-opcional-recomendado-estado-y-maximos-de-capacidad">PASO 4 — (Opcional recomendado) Estado y máximos de capacidad</h3>
+<p>Para evitar sorpresas, puedes marcar colas como activas y limitar o ampliar su máximo.</p>
+<p><strong>Estado por defecto:</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>yarn.scheduler.capacity.root.olap.facts.state<span class="nt">&lt;/name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;value&gt;</span>RUNNING<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</code></pre></div></p>
+<p><strong>Capacidad máxima (porcentaje):</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;property&gt;</span>
+<span class="w">  </span><span class="nt">&lt;name&gt;</span>yarn.scheduler.capacity.root.olap.facts.maximum-capacity<span class="nt">&lt;/name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;value&gt;</span>100<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</code></pre></div></p>
+<blockquote>
+<p><code>maximum-capacity</code> controla hasta dónde puede “estirarse” una cola si las demás están vacías (según configuración y demanda).</p>
+</blockquote>
+<hr />
+<h2 id="6-aplicar-cambios-y-verificar">6. Aplicar cambios y verificar</h2>
+<h3 id="61-recargar-colas-sin-reiniciar-servicios">6.1 Recargar colas (sin reiniciar servicios)</h3>
+<p>Una vez guardado el archivo:</p>
+<div class="highlight"><pre><span></span><code>yarn<span class="w"> </span>rmadmin<span class="w"> </span>-refreshQueues
+</code></pre></div>
+<p>Si por alguna razón la UI no refleja cambios, un reinicio del ResourceManager puede ser necesario (depende de cómo esté gestionado el clúster).</p>
+<hr />
+<h3 id="62-verificacion-en-la-ui">6.2 Verificación en la UI</h3>
+<p>En la web del ResourceManager (típicamente puerto <code>8088</code>):</p>
+<ul>
+<li>Revisa la sección del Scheduler y comprueba:</li>
+<li>Que existen <code>warehouse</code>, <code>datalake</code>, <code>olap</code>.</li>
+<li>Que dentro de <code>olap</code> existen <code>facts</code> y <code>dimensions</code>.</li>
+<li>Que los porcentajes coinciden con lo esperado.</li>
+</ul>
+<hr />
+<h2 id="7-tabla-de-capacidades-globales-respecto-al-cluster-total">7. Tabla de capacidades globales (respecto al clúster total)</h2>
+<p>Aunque <code>facts</code> y <code>dimensions</code> se configuran dentro de <code>olap</code>, su capacidad real sobre el clúster es:</p>
+<table>
+<thead>
+<tr>
+<th>Cola</th>
+<th style="text-align: right;">Capacidad respecto al clúster</th>
+<th>Cálculo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>warehouse</code></td>
+<td style="text-align: right;">20%</td>
+<td>asignación directa</td>
+</tr>
+<tr>
+<td><code>datalake</code></td>
+<td style="text-align: right;">20%</td>
+<td>asignación directa</td>
+</tr>
+<tr>
+<td><code>facts</code></td>
+<td style="text-align: right;">42%</td>
+<td>70% de 60% → 0.70 × 60 = 42</td>
+</tr>
+<tr>
+<td><code>dimensions</code></td>
+<td style="text-align: right;">18%</td>
+<td>30% de 60% → 0.30 × 60 = 18</td>
+</tr>
+</tbody>
+</table>
+<p>✅ Comprobación final: 20 + 20 + 42 + 18 = 100.</p>
+<hr />
+<h2 id="8-ejecucion-de-wordcount-y-resolucion-de-error">8. Ejecución de WordCount y resolución de error</h2>
+<h3 id="81-el-problema-job-enviado-a-una-cola-que-no-es-hoja">8.1 El problema: job enviado a una cola que no es hoja</h3>
+<p>Si lanzas el trabajo indicando la cola <code>olap</code>:</p>
+<div class="highlight"><pre><span></span><code>hadoop<span class="w"> </span>jar<span class="w"> </span>/opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.2.jar<span class="w"> </span>wordcount<span class="w">   </span>-Dmapreduce.job.queuename<span class="o">=</span>olap<span class="w">   </span>/input/documento.txt<span class="w"> </span>/output/output_olap
+</code></pre></div>
+<p><strong>Resultado esperado:</strong> el job falla (FAILED).</p>
+<p><strong>Explicación:</strong>
+- En Capacity Scheduler, <strong>solo se pueden enviar trabajos a colas hoja</strong>.
+- <code>olap</code> <strong>no es hoja</strong> porque tiene hijas: <code>facts</code> y <code>dimensions</code>.
+- Por tanto, YARN rechaza el envío.</p>
+<hr />
+<h3 id="82-la-solucion-enviar-el-job-a-una-cola-hoja">8.2 La solución: enviar el job a una cola hoja</h3>
+<p>Por ejemplo a <code>facts</code>:</p>
+<div class="highlight"><pre><span></span><code>hadoop<span class="w"> </span>jar<span class="w"> </span>/opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.2.jar<span class="w"> </span>wordcount<span class="w">   </span>-Dmapreduce.job.queuename<span class="o">=</span>facts<span class="w">   </span>/input/documento.txt<span class="w"> </span>/output/output_facts
+</code></pre></div>
+<p><strong>Verificación:</strong>
+- En la UI del ResourceManager, el job debería aparecer como <strong>SUCCEEDED</strong>.
+- Comprueba también que el consumo de recursos se refleja en la cola correcta.</p>
+<hr />
+<h2 id="9-cuestionario-respuestas">9. Cuestionario (respuestas)</h2>
+<p>1) <strong>¿Qué variable XML gestiona la capacidad máxima de una cola?</strong><br />
+<code>yarn.scheduler.capacity.&lt;ruta_cola&gt;.maximum-capacity</code><br />
+Ejemplo en <code>facts</code>:<br />
+<code>yarn.scheduler.capacity.root.olap.facts.maximum-capacity</code></p>
+<p>2) <strong>¿Qué variable XML indica el estado por defecto de una cola?</strong><br />
+<code>yarn.scheduler.capacity.&lt;ruta_cola&gt;.state</code><br />
+Valores típicos: <code>RUNNING</code> (activa) / <code>STOPPED</code> (detenida)</p>
+<p>3) <strong>¿Qué variable gestiona la vida máxima de un proceso?</strong><br />
+<code>yarn.scheduler.capacity.&lt;ruta_cola&gt;.maximum-application-lifetime</code><br />
+- Para deshabilitar (sin límite): <code>-1</code><br />
+- Para limitar a 10 minutos: <code>600</code> (segundos)</p>
+<hr />
+<h2 id="10-entrega-sugerida">10. Entrega sugerida</h2>
+<p>Incluye en tu entrega:</p>
+<ul>
+<li>Captura o evidencia del árbol de colas en la UI.</li>
+<li>Fragmento relevante de <code>capacity-scheduler.xml</code> (colas y capacidades).</li>
+<li>Evidencia de:</li>
+<li>Job fallando al usar <code>olap</code> como cola.</li>
+<li>Job funcionando al usar <code>facts</code> o <code>dimensions</code>.</li>
+</ul>
+<hr />
+<h2 id="11-referencias-de-apuntes-marcadores">11. Referencias de apuntes (marcadores)</h2>
+<p>[^273]: Marcador de referencia: 273–274<br />
+[^275]: Marcador de referencia: 275–276<br />
+[^277]: Marcador de referencia: 277<br />
+[^278]: Marcador de referencia: 278<br />
+[^279]: Marcador de referencia: 279<br />
+[^280]: Marcador de referencia: 280<br />
+[^281]: Marcador de referencia: 281<br />
+[^282]: Marcador de referencia: 282<br />
+[^285]: Marcador de referencia: 285–286<br />
+[^321]: Marcador de referencia: 321–322</p>
 
 
 
@@ -1338,7 +1730,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pie" >
         
           
-          <a href="../../modulo4/yarn_mapreduce/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Teoría: YARN y Arquitectura">
+          <a href="../yarn_scheduler/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Teoría: Gestión de Colas">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1348,27 +1740,11 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Teoría: YARN y Arquitectura
+                Teoría: Gestión de Colas
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../practica_scheduler/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Práctica: Metadatos (Commit)">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Siguiente
-              </span>
-              <div class="md-ellipsis">
-                Práctica: Metadatos (Commit)
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
