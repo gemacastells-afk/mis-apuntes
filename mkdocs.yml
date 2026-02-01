@@ -33,3 +33,4 @@ nav:
     - 'Teoría: YARN y Arquitectura': modulo4/yarn_mapreduce.md
   - 'Módulo 5: YARN Scheduler':
     - 'Teoría: Gestión de Colas': modulo5/yarn_scheduler.md
+    - 'Práctica: Metadatos (Commit)': modulo5/practica_scheduler.md
