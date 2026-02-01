@@ -26,6 +26,9 @@ La jerarquía a implementar es:
   - **olap**: 60%
     - **facts**: 70% (del total de `olap`)
     - **dimensions**: 30% (del total de `olap`)
+    ![Árbol de colas YARN](../images/arbolScheduler.png)
+
+
 
 > Nota: `facts` y `dimensions` son porcentajes **dentro de `olap`**, no del clúster completo.
 
@@ -246,15 +249,3 @@ Incluye en tu entrega:
   - Job funcionando al usar `facts` o `dimensions`.
 
 ---
-
-## 11. Referencias de apuntes (marcadores)
-[^273]: Marcador de referencia: 273–274  
-[^275]: Marcador de referencia: 275–276  
-[^277]: Marcador de referencia: 277  
-[^278]: Marcador de referencia: 278  
-[^279]: Marcador de referencia: 279  
-[^280]: Marcador de referencia: 280  
-[^281]: Marcador de referencia: 281  
-[^282]: Marcador de referencia: 282  
-[^285]: Marcador de referencia: 285–286  
-[^321]: Marcador de referencia: 321–322
