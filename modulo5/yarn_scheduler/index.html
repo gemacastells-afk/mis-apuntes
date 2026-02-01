@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../../modulo1/practica/">
-      
-      
-        <link rel="next" href="../practica_metadatos/">
       
       
         
@@ -23,7 +19,7 @@
     
     
       
-        <title>Teoría: HDFS y MapReduce - Apuntes Big Data</title>
+        <title>UD 5: YARN Scheduler - Apuntes Big Data</title>
       
     
     
@@ -72,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#el-ecosistema-hadoop" class="md-skip">
+        <a href="#ud-5-yarn-scheduler" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -106,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Teoría: HDFS y MapReduce
+              UD 5: YARN Scheduler
             
           </span>
         </div>
@@ -216,13 +212,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../modulo2/core/" class="md-tabs__link">
           
   
   
@@ -282,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modulo5/yarn_sheduler.md" class="md-tabs__link">
+        <a href="../yarn_sheduler.md" class="md-tabs__link">
           
   
   
@@ -499,29 +493,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -539,7 +528,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -554,37 +543,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Teoría: HDFS y MapReduce
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../modulo2/core/" class="md-nav__link">
         
   
   
@@ -600,176 +562,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-arquitectura-maestro-esclavo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Arquitectura: Maestro - Esclavo
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-los-dos-pilares-de-hadoop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Los Dos Pilares de Hadoop
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Los Dos Pilares de Hadoop">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-hdfs-almacenamiento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A. HDFS (Almacenamiento)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-yarn-procesamiento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B. YARN (Procesamiento)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-mapreduce-vs-spark" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. MapReduce vs Spark
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-el-zoologico-herramientas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. El "Zoológico" (Herramientas)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-arquitectura-interna-la-memoria-del-namenode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Arquitectura Interna: La Memoria del NameNode
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Arquitectura Interna: La Memoria del NameNode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-los-archivos-de-metadatos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A. Los Archivos de Metadatos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-el-proceso-de-checkpoint-punto-de-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B. El Proceso de Checkpoint (Punto de Control)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-guia-de-operaciones-basicas-startstop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Guía de Operaciones Básicas (Start/Stop)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Guía de Operaciones Básicas (Start/Stop)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#encender-el-cluster-hdfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🟢 Encender el Clúster (HDFS)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apagar-el-cluster" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔴 Apagar el Clúster
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -782,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practica_metadatos/" class="md-nav__link">
+      <a href="../../modulo2/practica_metadatos/" class="md-nav__link">
         
   
   
@@ -1037,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modulo5/yarn_sheduler.md" class="md-nav__link">
+      <a href="../yarn_sheduler.md" class="md-nav__link">
         
   
   
@@ -1092,44 +884,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-arquitectura-maestro-esclavo" class="md-nav__link">
+  <a href="#1-introduccion-al-scheduler-de-yarn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Arquitectura: Maestro - Esclavo
+        1. Introducción al Scheduler de YARN
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-los-dos-pilares-de-hadoop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Los Dos Pilares de Hadoop
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Los Dos Pilares de Hadoop">
+    <nav class="md-nav" aria-label="1. Introducción al Scheduler de YARN">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-hdfs-almacenamiento" class="md-nav__link">
+  <a href="#evolucion-historica" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A. HDFS (Almacenamiento)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-yarn-procesamiento" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B. YARN (Procesamiento)
+        Evolución Histórica
       
     </span>
   </a>
@@ -1142,44 +912,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-mapreduce-vs-spark" class="md-nav__link">
+  <a href="#2-interfaz-de-usuario-y-monitorizacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. MapReduce vs Spark
+        2. Interfaz de Usuario y Monitorización
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-el-zoologico-herramientas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. El "Zoológico" (Herramientas)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-arquitectura-interna-la-memoria-del-namenode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Arquitectura Interna: La Memoria del NameNode
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Arquitectura Interna: La Memoria del NameNode">
+    <nav class="md-nav" aria-label="2. Interfaz de Usuario y Monitorización">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-los-archivos-de-metadatos" class="md-nav__link">
+  <a href="#metricas-de-configuracion-scheduler-metrics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A. Los Archivos de Metadatos
+        Métricas de Configuración (Scheduler Metrics)
       
     </span>
   </a>
@@ -1187,10 +935,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-el-proceso-de-checkpoint-punto-de-control" class="md-nav__link">
+  <a href="#jerarquia-por-defecto" class="md-nav__link">
     <span class="md-ellipsis">
       
-        B. El Proceso de Checkpoint (Punto de Control)
+        Jerarquía por Defecto
       
     </span>
   </a>
@@ -1203,33 +951,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-guia-de-operaciones-basicas-startstop" class="md-nav__link">
+  <a href="#3-configuracion-capacity-schedulerxml" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Guía de Operaciones Básicas (Start/Stop)
+        3. Configuración: capacity-scheduler.xml
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Guía de Operaciones Básicas (Start/Stop)">
+    <nav class="md-nav" aria-label="3. Configuración: capacity-scheduler.xml">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#encender-el-cluster-hdfs" class="md-nav__link">
+  <a href="#propiedades-principales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🟢 Encender el Clúster (HDFS)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apagar-el-cluster" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔴 Apagar el Clúster
+        Propiedades Principales
       
     </span>
   </a>
@@ -1238,6 +975,39 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-gestion-de-recursos-y-colas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Gestión de Recursos y Colas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-asignacion-de-procesos-a-colas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Asignación de Procesos a Colas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-resumen-de-comandos-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Resumen de Comandos Útiles
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1258,117 +1028,70 @@
 
 
 
-<h1 id="el-ecosistema-hadoop">El Ecosistema Hadoop</h1>
-<h2 id="1-arquitectura-maestro-esclavo">1. Arquitectura: Maestro - Esclavo</h2>
-<p>Hadoop funciona como un ejército. Un nodo manda y los demás obedecen.</p>
+<h1 id="ud-5-yarn-scheduler">UD 5: YARN Scheduler</h1>
+<p>[cite_start]<strong>Asignatura:</strong> Grado de Especialización Big Data e IA [cite: 5]
+[cite_start]<strong>Centro:</strong> IES Pere Maria Orts [cite: 4]
+[cite_start]<strong>Autor:</strong> Jose Manuel Barrera Arroyo [cite: 3]</p>
+<hr />
+<h2 id="1-introduccion-al-scheduler-de-yarn">1. Introducción al Scheduler de YARN</h2>
+<p>[cite_start]El <strong>Scheduler</strong> es el componente de YARN responsable de la partición de los recursos de todo el clúster y de la asignación de procesos a cada una de esas particiones[cite: 19]. </p>
+<h3 id="evolucion-historica">Evolución Histórica</h3>
 <ul>
-<li><strong>Master (Maestro):</strong> Gestiona, coordina y sabe dónde está todo.</li>
-<li><strong>Slave (Esclavo):</strong> Hace el trabajo sucio (guardar datos o procesar cálculos).</li>
-<li><strong>Commodity Hardware:</strong> Hadoop está diseñado para ejecutarse en ordenadores "baratos" y normales, no en superordenadores.</li>
-</ul>
-<h2 id="2-los-dos-pilares-de-hadoop">2. Los Dos Pilares de Hadoop</h2>
-<h3 id="a-hdfs-almacenamiento">A. HDFS (Almacenamiento)</h3>
-<p>Es el sistema de archivos distribuido. Rompe los archivos en bloques y los reparte.
-* <strong>NameNode (Maestro):</strong> El índice. Sabe en qué nodo está cada trozo de archivo.
-* <strong>DataNode (Esclavo):</strong> El almacén. Guarda los bloques de datos físicamente.
-* <strong>Replicación:</strong> Por defecto, cada bloque se guarda 3 veces en distintos nodos para evitar pérdidas si un disco se rompe.</p>
-<h3 id="b-yarn-procesamiento">B. YARN (Procesamiento)</h3>
-<p>Es el sistema operativo del clúster. Reparte la RAM y la CPU.
-* <strong>ResourceManager (Maestro):</strong> Decide cuántos recursos le da a cada tarea.
-* <strong>NodeManager (Esclavo):</strong> Vigila el uso de CPU/RAM en cada máquina.</p>
-<h2 id="3-mapreduce-vs-spark">3. MapReduce vs Spark</h2>
-<p>Son las formas de "trabajar" con los datos.</p>
-<div class="admonition warning">
-<p class="admonition-title">MapReduce (El Clásico)</p>
-<ul>
-<li>Trabaja escribiendo mucho en disco duro.</li>
-<li>Es lento y por lotes (Batch).</li>
-<li>Bueno para procesos nocturnos que no tienen prisa.</li>
-</ul>
-</div>
-<div class="admonition success">
-<p class="admonition-title">Apache Spark (El Moderno)</p>
-<ul>
-<li>Trabaja en memoria RAM (hasta 100 veces más rápido).</li>
-<li>Permite procesamiento en tiempo real (Streaming).</li>
-<li>Es la evolución natural de MapReduce.</li>
-</ul>
-</div>
-<h2 id="4-el-zoologico-herramientas">4. El "Zoológico" (Herramientas)</h2>
-<ul>
-<li><strong>Hive:</strong> Para lanzar consultas SQL sobre Hadoop.</li>
-<li><strong>Pig:</strong> Lenguaje de script para procesar datos (ETL).</li>
-<li><strong>Sqoop:</strong> Mueve datos entre Hadoop y Bases de Datos SQL (Oracle, MySQL).</li>
-<li><strong>Flume:</strong> Mueve datos de streaming (logs, Twitter).</li>
+<li>[cite_start]<strong>MapReduce 1 (MR1):</strong> La distribución de recursos era homogénea para todo el clúster[cite: 21]. [cite_start]Se utilizaba el <em>Fair Scheduler</em>, el cual no permitía realizar particiones de recursos de forma jerárquica[cite: 21].</li>
+<li>[cite_start]<strong>YARN:</strong> Implementa una gestión de recursos basada en una <strong>estructura de árbol</strong>[cite: 22]. [cite_start]Este modelo se conoce como <strong>Capacity Scheduler</strong>[cite: 22, 25].</li>
 </ul>
 <hr />
-<h2 id="3-arquitectura-interna-la-memoria-del-namenode">3. Arquitectura Interna: La Memoria del NameNode</h2>
-<p>El NameNode es el cerebro de Hadoop. Para no "perder la memoria" si se apaga, utiliza dos archivos críticos que se guardan en el disco duro (normalmente en <code>/datos/namenode/current</code>).</p>
-<h3 id="a-los-archivos-de-metadatos">A. Los Archivos de Metadatos</h3>
+<h2 id="2-interfaz-de-usuario-y-monitorizacion">2. Interfaz de Usuario y Monitorización</h2>
+<p>[cite_start]Es posible supervisar la gestión de recursos a través de la interfaz web de YARN[cite: 38, 39].</p>
+<h3 id="metricas-de-configuracion-scheduler-metrics">Métricas de Configuración (Scheduler Metrics)</h3>
+<p>[cite_start]En la interfaz podemos observar límites críticos para el funcionamiento del clúster[cite: 75]:
+* [cite_start]<strong>Minimum Allocation:</strong> El recurso mínimo que se asigna a cada contenedor (ejemplo: <code>&lt;memory:1024, vCores:1&gt;</code>)[cite: 85].
+* [cite_start]<strong>Maximum Allocation:</strong> El límite máximo de recursos que puede solicitar un solo proceso (ejemplo: <code>&lt;memory:8192, vCores:4&gt;</code>)[cite: 86].</p>
+<h3 id="jerarquia-por-defecto">Jerarquía por Defecto</h3>
+<p>[cite_start]Si no se realiza una configuración específica, YARN crea automáticamente[cite: 119, 120]:
+1.  Una cola general llamada <strong>root</strong>.
+2.  Una subcola llamada <strong>default</strong>, que tiene asignado el <strong>100%</strong> de los recursos del clúster.</p>
+<hr />
+<h2 id="3-configuracion-capacity-schedulerxml">3. Configuración: <code>capacity-scheduler.xml</code></h2>
+<p>[cite_start]La distribución de recursos en forma de "colas" se define en el archivo de configuración <code>capacity-scheduler.xml</code>[cite: 190, 191]. [cite_start]Este archivo se encuentra junto al resto de archivos de configuración de Hadoop[cite: 192].</p>
+<h3 id="propiedades-principales">Propiedades Principales</h3>
 <ol>
-<li>
-<p><strong><code>fsimage</code> (La Foto Fija):</strong></p>
-<ul>
-<li>Es una copia completa ("snapshot") del estado del sistema de ficheros en un momento concreto.</li>
-<li>Contiene el inventario de todos los directorios y archivos.</li>
-<li><strong>Analogía:</strong> Es el "Inventario Anual" de una biblioteca.</li>
+<li>[cite_start]<strong>Definición de colas (<code>queues</code>):</strong> Indica qué colas existen en un nivel determinado[cite: 197, 198].<ul>
+<li>[cite_start]<em>Ejemplo:</em> <code>yarn.scheduler.capacity.root.queues</code> con valor <code>default, prod, desa</code> creará tres colas que cuelgan del nodo raíz[cite: 221, 222, 237, 238].</li>
 </ul>
 </li>
-<li>
-<p><strong><code>edits</code> (El Diario de Cambios):</strong></p>
-<ul>
-<li>Es un registro log de cada pequeña operación que ocurre después del último <code>fsimage</code> (crear un archivo, borrarlo, etc.).</li>
-<li><strong>Analogía:</strong> Es la libreta de notas donde el bibliotecario apunta lo que pasa día a día .</li>
-</ul>
-</li>
-<li>
-<p><strong><code>VERSION</code>:</strong></p>
-<ul>
-<li>Contiene identificadores únicos como el <code>clusterID</code>. Es el "DNI" del clúster. Si formateas el NameNode, este ID cambia y los DataNodes dejan de reconocer al jefe.</li>
+<li>[cite_start]<strong>Asignación de Capacidad (<code>capacity</code>):</strong> Indica el porcentaje de recursos asignado a cada cola[cite: 199].<ul>
+<li>[cite_start]<em>Ejemplo:</em> <code>yarn.scheduler.capacity.root.default.capacity</code> con valor <code>30</code> asigna el 30% a esa cola[cite: 228].</li>
 </ul>
 </li>
 </ol>
-<h3 id="b-el-proceso-de-checkpoint-punto-de-control">B. El Proceso de Checkpoint (Punto de Control)</h3>
-<p>Cuando el NameNode arranca, tiene que leer el <code>fsimage</code> y aplicar todos los cambios del <code>edits</code>. Si el <code>edits</code> es gigante, el arranque es lentísimo.</p>
-<ul>
-<li><strong>¿Qué es el Checkpoint?</strong> Es el proceso de fusionar el <code>fsimage</code> viejo + el <code>edits</code> actual para crear un <strong>nuevo <code>fsimage</code> actualizado</strong> y vaciar el registro de cambios.</li>
-<li><strong>Safe Mode (Modo Seguro):</strong> Es un estado de "solo lectura". El clúster se pone en pausa (no se puede escribir) para realizar tareas de mantenimiento o cuando detecta problemas </li>
-</ul>
+<blockquote>
+<p>[cite_start]<strong>Nota:</strong> Para añadir elementos a un nivel, los nombres de las colas se separan por comas en la configuración[cite: 215, 217].</p>
+</blockquote>
 <hr />
-<h2 id="4-guia-de-operaciones-basicas-startstop">4. Guía de Operaciones Básicas (Start/Stop)</h2>
-<p>Para trabajar con Hadoop, primero debemos "levantar" los servicios (demonios). Si no lo hacemos, recibiremos errores de <code>Connection Refused</code>.</p>
-<h3 id="encender-el-cluster-hdfs">🟢 Encender el Clúster (HDFS)</h3>
-<p>Se debe ejecutar siempre que encendamos la máquina virtual.</p>
-<div class="highlight"><pre><span></span><code>start-dfs.sh
-</code></pre></div>
-<ul>
-<li><strong>Qué hace:</strong> Arranca el NameNode (maestro), los DataNodes (esclavos) y el SecondaryNameNode.</li>
-<li><strong>Cuándo usarlo:</strong> Al inicio de la sesión.</li>
-</ul>
-<h3 id="apagar-el-cluster">🔴 Apagar el Clúster</h3>
-<p>Es recomendable hacerlo antes de apagar la máquina virtual para evitar que los archivos de metadatos se corrompan.</p>
-<div class="highlight"><pre><span></span><code>stop-dfs.sh
-</code></pre></div>
-<ul>
-<li><strong>Qué hace</strong>: Detiene todos los procesos de forma ordenada.</li>
-</ul>
-<p>🔍 <strong>Verificar el Estado (JPS)</strong>
-El comando jps (Java Virtual Machine Process Status Tool) es el "médico" que nos dice qué procesos están vivos.</p>
-<p><div class="highlight"><pre><span></span><code>jps
-</code></pre></div>
-<strong>Salida Correcta (Deben aparecer estos 3):</strong></p>
+<h2 id="4-gestion-de-recursos-y-colas">4. Gestión de Recursos y Colas</h2>
+<p>[cite_start]Una vez modificado el archivo de configuración, existen dos formas de aplicar los cambios[cite: 243, 244]:</p>
 <ol>
-<li>
-<p><strong>NameNode:</strong> El jefe. Si no está, no funciona nada.</p>
-</li>
-<li>
-<p><strong>DataNode:</strong> El trabajador. Si no está, no tenemos dónde guardar datos.</p>
-</li>
-<li>
-<p><strong>SecondaryNameNode:</strong> El ayudante para los checkpoints.</p>
+<li>[cite_start]<strong>Reinicio del servicio:</strong> Parar y arrancar Hadoop[cite: 245].</li>
+<li>[cite_start]<strong>Refresco en caliente:</strong> Ejecutar el comando <code>yarn rmadmin -refreshQueues</code>[cite: 248].<ul>
+<li>[cite_start]<em>Riesgos:</em> Este comando puede fallar si la cola está en uso (estado <code>RUNNING</code>), especialmente si intentas convertir una cola de tipo "hoja" en una cola "padre"[cite: 249, 252, 253].</li>
+</ul>
 </li>
 </ol>
-<p><strong>Nota:</strong> Si al hacer jps solo sale el número de proceso (ej: 1234 Jps) y nada más, significa que Hadoop está APAGADO.</p>
+<hr />
+<h2 id="5-asignacion-de-procesos-a-colas">5. Asignación de Procesos a Colas</h2>
+<p>[cite_start]Para ejecutar un trabajo de MapReduce en una cola específica (distinta a la <code>default</code>), se debe añadir un parámetro en la línea de comandos[cite: 266, 267, 268]:</p>
+<p>[cite_start]<strong>Parámetro:</strong> <code>-Dmapreduce.job.queuename=nombre_de_la_cola</code> [cite: 270]</p>
+<p><strong>Ejemplo de ejecución:</strong>
+<code>bash
+hadoop jar hadoop-mapreduce-examples.jar wordcount -Dmapreduce.job.queuename=facts/libros /entrada /salida
+[cite_start]</code> [cite: 272]</p>
+<hr />
+<h2 id="6-resumen-de-comandos-utiles">6. Resumen de Comandos Útiles</h2>
+<ul>
+<li>[cite_start]<strong>Listar colas por consola:</strong> <code>mapred queue -list</code>[cite: 187, 188].</li>
+<li>[cite_start]<strong>Actualizar configuración sin reiniciar:</strong> <code>yarn rmadmin -refreshQueues</code>[cite: 248].</li>
+</ul>
 
 
 
@@ -1399,44 +1122,6 @@ El comando jps (Java Virtual Machine Process Status Tool) es el "médico" que no
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Pie" >
-        
-          
-          <a href="../../modulo1/practica/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Práctica: Instalación Base">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Anterior
-              </span>
-              <div class="md-ellipsis">
-                Práctica: Instalación Base
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../practica_metadatos/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Práctica: Metadatos (Commit)">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Siguiente
-              </span>
-              <div class="md-ellipsis">
-                Práctica: Metadatos (Commit)
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
